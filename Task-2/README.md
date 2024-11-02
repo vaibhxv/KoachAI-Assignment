@@ -1,5 +1,7 @@
 # Scheduling Application
 
+![Event Scheduler](./EventScheduler.png)  <!-- Update the path if the image is in a different directory -->
+
 ## Overview
 
 This scheduling application allows users to manage events within a 24-hour day. The core functionality includes adding events while ensuring they do not overlap and displaying scheduled events in a user-friendly format.
