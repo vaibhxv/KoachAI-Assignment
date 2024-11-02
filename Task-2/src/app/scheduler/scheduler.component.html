@@ -1,0 +1,57 @@
+<div class="scheduler-container">
+    <h1>Event Scheduler</h1>
+  
+    <div class="form-card">
+      <h2>New Event</h2>
+      <form (ngSubmit)="addEvent()" class="event-form">
+        <div class="input-group">
+          <label for="start-time">Start Time</label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="start-time"
+              [(ngModel)]="start_time"
+              name="start"
+              min="0"
+              max="23"
+              placeholder="e.g. 9 for 9:00 AM"
+              required
+            />
+           
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="end-time">End Time</label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="end-time"
+              [(ngModel)]="end_time"
+              name="end"
+              min="1"
+              max="24"
+              placeholder="e.g. 17 for 5:00 PM"
+              required
+            />
+           
+          </div>
+        </div>
+        <button type="submit">Schedule Event</button>
+      </form>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+  
+   
+    <div class="events-card">
+      <h2>Today's Schedule</h2>
+      <ul class="events-list">
+        <li *ngFor="let event of events">
+          <div class="event-time">
+            <span class="time">{{ formatTime(event.start_time) }}</span>
+            <span class="separator">→</span>
+            <span class="time">{{ formatTime(event.end_time) }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>
